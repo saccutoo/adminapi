@@ -1,0 +1,749 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Admin.API</name>
+    </assembly>
+    <members>
+        <member name="T:API.BussinessLogic.UserUserGroupUpdateModel">
+            <summary>
+            Model chứa thông tin cập nhật
+            người dùng, bao gồm thông tin thêm từ hệ thống khác, danh sách nhóm người dùng đc gán
+            </summary>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.GetByIdAsync(System.Decimal)">
+            <summary>
+            Lấy thông tin ứng dụng theo id
+            </summary>
+            <param name="id">Id nhân viên</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.GetAllAsync">
+            <summary>
+            Lấy tất cả ứng dụng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.GetApplicationByUserAsync(System.Decimal,System.String)">
+            <summary>
+            Lấy tất cả ứng dụng được phân quyền cho người dùng đăng nhập
+            </summary>
+            <param name="userName">Ten dang nhap</param>
+            <param name="channelCode">Ma kenh</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.GetApplicationActive">
+            <summary>
+            Lấy tất cả ứng dụng có trạng thái active
+            </summary>
+            <param name="userName">Ten dang nhap</param>
+            <param name="channelCode">Ma kenh</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.GetApplicationsByFilterAsync(System.String)">
+            <summary>
+            Lấy application theo filter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.CreateAsync(API.BussinessLogic.ApplicationCreateModel)">
+            <summary>
+            Thêm mới ứng dụng
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.UpdateAsync(System.Decimal,API.BussinessLogic.ApplicationCreateModel)">
+            <summary>
+            Cập nhật ứng dụng
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ApplicationController.DeleteAsync(System.Decimal)">
+            <summary>
+            Xóa ứng dụng
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.AuthController.LoginAD(API.BussinessLogic.LoginModel)">
+            <summary>
+            Đăng nhập AD trả về Token
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.AuthController.LoginBiometric(API.BussinessLogic.UserBiometricBaseModel)">
+            <summary>
+            Đăng nhập sinh trắc học
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.AuthController.LoginADWithoutToken(API.BussinessLogic.LoginModel)">
+            <summary>
+            Đăng nhập AD không trả về Token
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.AuthController.CheckKeyManager(System.String,System.String,System.String)">
+            <summary>
+            Kiểm tra key manager
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.AuthController.RevokeKey">
+            <summary>
+            Thu hồi key khi đăng xuất
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ContactsController.UpdateAsync(System.Decimal,API.BussinessLogic.ContactUpdateModel)">
+            <summary>
+            Cập nhật danh bạ 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ContactsController.GetContactByFilterAsync(System.String)">
+            <summary>
+            Lấy danh sách danh bạ theo bộ lọc
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ContactsController.GetContactGroupByFilterAsync(System.String)">
+            <summary>
+            Lấy danh sách danh bạ theo bộ lọc và nhóm theo phòng ban
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ContactsController.GetContactByIdAsync(System.Decimal)">
+            <summary>
+            Lấy thông tin chi tiết danh bạ theo id
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ContactsController.ViewRawImageAsync(System.String)">
+            <summary>
+            Doc avatarr
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.GetTreeFunctionsByUserAsync(System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Lấy danh sách menu các chức năng theo ứng dụng cua nguoi dung dang nhap
+            </summary>
+            <param name="userId">User ID dang nhap</param>
+            <param name="appId">Ma ung dung</param>
+            <param name="channelCode">Ma kenh</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.GetTreeFunctionsWithoutAppAsync(System.Decimal,System.String)">
+            <summary>
+            Lấy danh sách menu các chức năng cua nguoi dung dang nhap
+            </summary>
+            <param name="userId">User ID dang nhap</param>
+            <param name="channelCode">Ma kenh</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.GetAllFunctionByAppIdAsync(System.Decimal,System.String)">
+            <summary>
+            Lấy danh sách functions theo app code
+            </summary>
+            <param name="appId">Ma ung dung</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.GetAllFunctionByFilterAsync(System.String)">
+            <summary>
+            Lấy danh sách functions theo filter
+            </summary>
+            <param name="appId">Ma ung dung</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.GetFunctionByIdAsync(System.Decimal)">
+            <summary>
+            Lấy function by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.CreateAsync(API.BussinessLogic.FunctionsCreateModel)">
+            <summary>
+            Thêm mới function
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.UpdateAsync(System.Decimal,API.BussinessLogic.FunctionsUpdateModel)">
+            <summary>
+            chỉnh sửa function
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.FunctionsController.DeleteAsync(System.Decimal)">
+            <summary>
+            chỉnh sửa function
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.GetAllAsync">
+            <summary>
+            Lấy tất cả roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.GetRolesByFilterAsync(System.String)">
+            <summary>
+            Lấy role theo filter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.GetRoleById(System.Decimal)">
+            <summary>
+            Lấy role theo roleid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.CreateAsync(API.BussinessLogic.RolesCreateModel)">
+            <summary>
+            Tạo mới roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.UpdateAsync(System.Decimal,API.BussinessLogic.RolesUpdateModel)">
+            <summary>
+            Update roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.DeleteAsync(System.Decimal)">
+            <summary>
+            Delete roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.RolesController.DeleteManyAsync(System.Collections.Generic.List{System.Decimal})">
+            <summary>
+            Delete many roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.GetAllAsync(System.String)">
+            <summary>
+            Lấy toàn bộ email templates theo trạng thái
+            </summary>
+            <param name="Type">ALL/ACTIVE : lấy theo trạng thái</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.GetByIdAsync(System.Decimal)">
+            <summary>
+            Lấy email templates theo mã
+            </summary>
+            <param name="id">Mã khảo sát</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.GetByCodeAsync(System.String)">
+            <summary>
+            Lấy email templates theo mã
+            </summary>
+            <param name="Code">Mã</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.GetByFilterAsync(System.String)">
+            <summary>
+            Lấy dữ liệu theo filter
+            </summary>
+            <param name="filterModel">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.CheckNameAsync(System.Decimal,System.String)">
+            <summary>
+            kiem tra ten
+            </summary>
+            <param name="id">mã</param>
+            <param name="code">code</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.CreateAsync(API.BussinessLogic.SAAreasCreateModel)">
+            <summary>
+            Thêm mới email templates
+            </summary>
+            <param name="model">Các thông tin thêm mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.DeleteAsync(System.Decimal)">
+            <summary>
+            Xóa email templates
+            </summary>
+            <param name="id">mã email templates</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.DeleteManyAsync(System.Collections.Generic.List{System.Decimal})">
+            <summary>
+            Xóa nhiều email templates
+            </summary>
+            <param name="listRoleId">mảng các mã khảo sát</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.SAAreasController.ApprovedAsync(API.BussinessLogic.SAAreasApprovedModel)">
+            <summary>
+            Duyệt email templates
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserChatController.GetContact">
+            <summary>
+            Lấy danh bạ điện thoại cho ChatBot
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.GetByFilterAsync(System.String)">
+            <summary>
+            Lấy nhóm người dùng theo bộ lọc
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.GetById(System.Decimal)">
+            <summary>
+            Lấy chi tiết theo id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.GetAllByUser(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy danh sách nhóm NND được phân quyền
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.CreateAsync(API.BussinessLogic.UserGroupCreateModel)">
+            <summary>
+            Tạo mới nhóm người dùng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.UpdateAsync(System.Decimal,API.BussinessLogic.UserGroupUpdateModel)">
+            <summary>
+            Cập nhật nhóm người dùng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.UserGroupController.DeleteByIdAsync(System.Decimal)">
+            <summary>
+            Xóa theo id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Extensions.ApplicationBuilderExtensions.UseDeveloperErrorPages(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds developer friendly error pages for the application which contain extra debug and exception information.
+            Note: It is unsafe to use this in production.
+            </summary>
+        </member>
+        <member name="T:API.Extensions.CustomServiceCollectionExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> extension methods which extend ASP.NET Core services.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures caching for the application. Registers the <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache"/> and
+            <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache"/> types with the services collection or IoC container. The
+            <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache"/> is intended to be used in cloud hosted scenarios where there is a shared
+            cache, which is shared between multiple instances of the application. Use the <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache"/>
+            otherwise.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the settings by binding the contents of the appsettings.json file to the specified Plain Old CLR
+            Objects (POCO) and adding <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> objects to the services collection.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomResponseCompression(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds dynamic response compression to enable GZIP compression of responses. This is turned off for HTTPS
+            requests by default to avoid the BREACH security vulnerability.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomRouting(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add custom routing settings which determines how URL's are generated.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomStrictTransportSecurity(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the Strict-Transport-Security HTTP header to responses. This HTTP header is only relevant if you are
+            using TLS. It ensures that content is loaded over HTTPS and refuses to connect in case of certificate
+            errors and warnings.
+            See https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security and
+            http://www.troyhunt.com/2015/06/understanding-http-strict-transport.html
+            Note: Including subdomains and a minimum maxage of 18 weeks is required for preloading.
+            Note: You can refer to the following article to clear the HSTS cache in your browser:
+            http://classically.me/blogs/how-clear-hsts-settings-major-browsers
+            </summary>
+        </member>
+        <member name="M:API.Extensions.CustomServiceCollectionExtensions.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds Swagger services and configures the Swagger services.
+            </summary>
+        </member>
+        <member name="M:API.Extensions.MvcCoreBuilderExtensions.AddCustomCors(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add cross-origin resource sharing (CORS) services and configures named CORS policies. See
+            https://docs.asp.net/en/latest/security/cors.html
+            </summary>
+        </member>
+        <member name="M:API.Extensions.MvcCoreBuilderExtensions.AddCustomJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Adds customized JSON serializer settings.
+            </summary>
+        </member>
+        <member name="T:API.Extensions.ProjectServiceCollectionExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> extension methods add project services.
+            </summary>
+            <remarks>
+            AddSingleton - Only one instance is ever created and returned.
+            AddScoped - A new instance is created and returned for each request/response cycle.
+            AddTransient - A new instance is created and returned each time.
+            </remarks>
+        </member>
+        <member name="T:API.Infrastructure.Exceptions.PermissionDomainException">
+            <summary>
+            Exception type for app exceptions
+            </summary>
+        </member>
+        <member name="M:API.Infrastructure.Repositories.RepositoryHandler`3.ExecuteProcOracleReturnRow(System.String,System.Object,System.Boolean)">
+            <summary>
+            Thực thi thủ tục và trả về danh sách kết quả
+            </summary>
+            <param name="procName"></param>
+            <param name="dyParam"></param>
+            <param name="returnList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Infrastructure.Repositories.RepositoryHandler`3.ExecuteProcOracle(System.String,System.Object)">
+            <summary>
+            Thực thi thủ tục và trả về trạng thái thực thi
+            </summary>
+            <param name="procName"></param>
+            <param name="dyParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Infrastructure.Repositories.RepositoryHandler`3.ExecuteProcOracle(System.String,API.Infrastructure.Repositories.UnitOfWorkOracle,System.Object)">
+            <summary>
+            Thực thi thủ tục và trả về trạng thái thực thi
+            </summary>
+            <param name="procName"></param>
+            <param name="dyParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Infrastructure.Repositories.RepositoryHandler`3.ExecuteProcOracle(System.String,System.Data.IDbConnection,System.Data.IDbTransaction,System.Object)">
+            <summary>
+            Giữ kết nối, thực thi thủ tục và trả về trạng thái thực thi. Kiểm soát commit, rollback
+            </summary>
+            <param name="procName"></param>
+            <param name="dyParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.ATM_UserPermisionController.GetUserByFilterAsync(System.String)">
+            <summary>
+            Lấy thông tin ứng dụng theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.ChannelsController.GetAllAsync(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy chanels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.UpdateTel(System.Decimal,System.String)">
+            <summary>
+            Cap nhat so dien thoai phong ban
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.GetDepartmentTreeView">
+            <summary>
+            Lay cay don vi dang cay phan cap
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.GetTreeDepartAsync">
+            <summary>
+            Lấy tất cả departments dạng cây
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.GetFlatDepartByParentIdAsync(System.Decimal)">
+            <summary>
+            get department by parent (bot current parent) flat
+            </summary>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.GetTreeDepartSelectAsync">
+            <summary>
+            Lấy tất cả departments
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.DepartmentsController.GetAllAncestorAsync(System.Decimal)">
+            <summary>
+            get AllAncestor by child
+            </summary>
+            <param name="childId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.GetAllAsync">
+            <summary>
+            Lấy 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.GetByFilterAsync(System.String)">
+            <summary>
+            Lấy thông tin theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.GetTreeFuncPermsByAppIdGroupByFuncAsync(System.Decimal,System.Nullable{System.Decimal})">
+            <summary>
+            Lấy tree group by Func
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.GetTreeFuncPermsByAppIdGroupByPermAsync(System.Decimal,System.Nullable{System.Decimal})">
+            <summary>
+            Lấy tree group by Perm
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.GetFuncPermsByFuncIdAsync(System.Decimal)">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.CreateAsync(System.Collections.Generic.List{API.BussinessLogic.FuncPermsCreateModel})">
+            <summary>
+            Thêm mới func permission
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.UpdateAsync(System.Decimal,API.BussinessLogic.FuncPermsUpdateModel)">
+            <summary>
+            Cập nhật func permission
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.DeleteUserAsync(System.Decimal)">
+            <summary>
+            Delete func permission
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.FuncPermsController.DeleteUserManyAsync(API.BussinessLogic.FuncPermsDeleteModel)">
+            <summary>
+            Delete func permission many
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.PermissionsController.GetAllAsync(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy tất cả permissions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserBiometricController.RegisterBiometric(API.BussinessLogic.UserBiometricCreateModel)">
+            <summary>
+            Đăng ký biometric
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserBiometricController.UnRegisterBiometric(API.BussinessLogic.UserBiometricCreateModel)">
+            <summary>
+            Đăng ký biometric
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetUserByBirthdayMonnthAsync(System.Int32)">
+            <summary>
+            Lấy danh sách các nhân sự có ngày sinh trong tháng
+            </summary>
+            <param name="month">tháng hiện tại</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetUserByBirthdayDayAsync(System.Int32,System.Int32)">
+            <summary>
+            Lấy danh sách các nhân sự có ngày sinh trong tháng và ngày hiện tại
+            </summary>
+            <param name="day">ngày hiện tại</param>
+            <param name="month">tháng hiện tại</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetUserByFilterAsync(System.String)">
+            <summary>
+            Lấy thông tin ứng dụng theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetStaffByManagerAsync">
+            <summary>
+            Lấy toàn bộ thông tin user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetUserAllAsync">
+            <summary>
+            Lấy toàn bộ danh sách nhân viên theo quản lý
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetUserByIdAsync(System.Decimal)">
+            <summary>
+            Lấy thông tin ứng dụng theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetByEmpIDAsync(System.String)">
+            <summary>
+            Lấy thông tin SAUser theo mã nhân viên OS
+            </summary>
+            <param name="Emp_ID">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetByEmailAsync(System.String)">
+            <summary>
+            Lấy thông tin SAUser theo email
+            </summary>
+            <param name="Email">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetAllPhongBanIas">
+            <summary>
+            Lấy toàn bộ danh sách phòng ban Ias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.GetPosTheoPhamVi(System.String)">
+            <summary>
+            Lấy toàn bộ danh sách pos theo pham vi
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.CreateAsync(API.BussinessLogic.UserCreateModel)">
+            <summary>
+            Thêm mới user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.UpdateAsync(System.Decimal,API.BussinessLogic.UserUpdateModel)">
+            <summary>
+            Cập nhật user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.UpdateFcmTokenAsync(System.Decimal,API.BussinessLogic.UserUpdateFCMModel)">
+            <summary>
+            Cập nhật FCM token của user
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.UpdateUserGroupAsync(System.Decimal,API.BussinessLogic.UserUserGroupUpdateModel)">
+            <summary>
+            Cập nhật user theo nhóm người dùng
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.DeleteUserAsync(System.Decimal)">
+            <summary>
+            Delete user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserController.DeleteUserManyAsync(API.BussinessLogic.UserDeleteModel)">
+            <summary>
+            Delete user many
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserDepartsController.UpdateAsync(System.Decimal,API.BussinessLogic.UserDepartsUpdateModel)">
+            <summary>
+            Cập nhật ứng dụng
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserPermisionController.GetTreeFuncPermByUserIdGroupByFunc(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy thông tin ứng dụng theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserPermisionController.GetTreeFuncPermByUserIdGroupByPerms(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy thông tin ứng dụng theo thong tin nguoi dung
+            </summary>
+            <param name="model">model dung de filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserPermisionController.GetTreeAllAppThenRole(System.Nullable{System.Decimal})">
+            <summary>
+            Lấy cây ứng dụng - nhóm quyền không theo người dùng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserPermisionController.UpdateAsync(System.Decimal,API.BussinessLogic.UserPermisionUpdateModel)">
+            <summary>
+            Cập nhật user permission
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserRolesController.GetRolesOfUserAsync(System.Decimal)">
+            <summary>
+            Lấy tất cả roles by user id
+            </summary>
+            <param name="userId">Ma user</param>
+            <returns></returns>
+        </member>
+        <member name="M:Admin.API.Controllers.UserRolesController.GetRolesNotOfUserAsync(System.Decimal)">
+            <summary>
+            Lấy tất cả roles by user id
+            </summary>
+            <param name="userId">Ma user</param>
+            <returns></returns>
+        </member>
+        <member name="T:Employee.API.MyHeaderFilter">
+            <summary>
+            Operation filter to add the requirement of the custom header
+            </summary>
+        </member>
+    </members>
+</doc>

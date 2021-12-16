@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  admin.api:
+    image: ${DOCKER_REGISTRY-}adminapi
+    build:
+      context: .
+      dockerfile: src/Services/Admin.API/Dockerfile
+
+  #auth.api:
+  #  image: ${DOCKER_REGISTRY-}authapi
+  #  build:
+  #    context: .
+  #    dockerfile: src/Services/Auth.API/Dockerfile
+
